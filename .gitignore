@@ -2,3 +2,14 @@
 cache/
 *~
 __pycache__/
+CONTRIBUTING.rst
+MANIFEST.in
+README.rst
+build/
+channels.pyc
+dist/
+docs/
+facebook/
+facebook_sdk.egg-info/
+setup.py
+test/

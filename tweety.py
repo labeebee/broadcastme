@@ -18,7 +18,7 @@ def details(id):
 
 def posting (id,msg):
     ckey,csec,atoken,asec=details(id)
-    auth= OAutHandler(ckey,csec)
+    auth= OAuthHandler(ckey,csec)
     auth.set_access_token(atoken,asec)
     tweepy.API(auth).update_status(msg)
     print("tweet successfully")

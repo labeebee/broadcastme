@@ -1,12 +1,12 @@
 
-from twitter import load_data,details
-import twitter
+from tweety import load_data,details
+import tweety
 
 
 
 def test_load_data():
     b=load_data("one")
-    assert len(twitter.acc)>0
+    assert len(tweety.acc)>0
 
 
 
@@ -16,6 +16,13 @@ def test_details():
     assert b=="consumer_secret"
     assert c=="access_token"
     assert d=="access_secret"
+
+def test_new_twitter():
+    
+    b=new_twitter("two","conumer_key2","csec2","atoken2","asec2")
+    assert b["two"]==["conumer_key2","csec2","atoken2","asec2"]
+    
+    
     
 
     

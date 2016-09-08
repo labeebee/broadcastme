@@ -1,14 +1,15 @@
 import facebook
 import requests
 
-# The variable access_token is temporarily defined manually for now.
-# The authenticate() function is supposed to provide the same in the future.
-access_token = 'EAACEdEose0cBACx37U2G8mqvItLnPcFWIbZCr6Hsm92B7ctpx7kA6PYhdhZAtGYOzir0oPEvohoGVyPf8EZA80MT3LjqITwpbTMoct7BZCFyNmkBZA7rmJZADAxyZCypPK7YzIXKZAUYrZCzCSbUt23Upn00MX5akBUiHEQgvIkgeTAZDZD'
+import fb_data
 
-# temporarily declared as authenticate() is not implemented
-user = '10202702084847551' 
+
+data = fb_data.load_file("fb_data.json")
+ 
 
 class FaceBook:
+
+     
      
      def __init__(self, username, password):
          self.username = username
@@ -21,8 +22,9 @@ class FaceBook:
          return access_token
 
      def facebook_post(self, message):
+         access_token = data[self.username][2]
          graph = facebook.GraphAPI(access_token)
-         profile = graph.get_object(user)
+         profile = graph.get_object(data[self.username][1])
          if (graph.put_wall_post(message)):
              acknw = True
              return acknw

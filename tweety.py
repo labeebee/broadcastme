@@ -1,14 +1,14 @@
-from broadcast_me import load_file
 from tweepy import OAuthHandler
 import tweepy
 import json
 
 
 def load_data(id):
-    data=load_file("twitter_db.json")
-    global acc
-    acc=data[id]
-    return (acc)
+    with open("twitter_db.json") as f:
+        data=json.load(f)
+        global acc
+        acc=data[id] 
+        return (acc)
 
 
 def details(id):
@@ -23,6 +23,7 @@ def details(id):
 def posting (id,msg):
     ckey,csec,atoken,asec=details(id)
     auth= OAuthHandler(ckey,csec)
+    print(auth)
     auth.set_access_token(atoken,asec)
     tweepy.API(auth).update_status(msg)
     print("tweet successfully")

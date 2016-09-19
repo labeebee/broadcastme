@@ -1,5 +1,5 @@
 
-from tweety import load_data,details,new_twitter
+from tweety import load_data,details,new_twitter,new_account
 import tweety
 
 
@@ -18,10 +18,14 @@ def test_details():
     assert d=="access_secret"
 
 def test_new_twitter():
-    
+  
     b=new_twitter("two","conumer_key2","csec2","atoken2","asec2")
-    assert b["two"]==["conumer_key2","csec2","atoken2","asec2"]
-    
+    assert b["two"]["twitter"]==["conumer_key2","csec2","atoken2","asec2"]
+
+def test_new_account():
+    b=new_account("three")
+    assert b["three"]=={}
+
     
     
 

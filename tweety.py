@@ -4,19 +4,20 @@ import json
 
 
 def load_data(id):
-    with open("twitter_db.json") as f:
+    with open("db.json") as f:
         data=json.load(f)
         global acc
-        acc=data[id] 
+        acc=data[id]
         return (acc)
 
 
 def details(id):
-    ac=load_data(id)
-    consumer_key=ac[0]
-    consumer_secret=ac[1]
-    access_token=ac[2]
-    access_secret=ac[3]
+    data=load_data(id)
+    id_data=data["twitter"]
+    consumer_key=id_data[0]
+    consumer_secret=id_data[1]
+    access_token=id_data[2]
+    access_secret=id_data[3]
     return(consumer_key,consumer_secret,access_token,access_secret)
 
 
@@ -31,16 +32,32 @@ def posting (id,msg):
 
     
 def new_twitter(uid,ck,cs,at,asc):
-    with open ("twitter_db.json") as f:
+    with open ("db.json") as f:
         data=json.load(f)
-        if uid not in data:
-            data[uid]=[ck,cs,at,asc]
-            f=open("twitter_db.json","w")
+        uid_data=data[uid]
+        if "twitter" not in uid_data:
+            data[uid]["twitter"]=[ck,cs,at,asc]
+            f=open("db.json","w")
             json.dump(data,f)
             f.close()
         else:
             print("User id Already Exist")
         return (data)
+
+
+    
+def new_account(id):
+      with open ("db.json") as f:
+        data=json.load(f)
+        if id not in data:
+            data[id]={}
+            f=open("db.json","w")
+            json.dump(data,f)
+            f.close()
+        else:
+            print("User id Already Exist")
+        return (data)
+    
     
     
     

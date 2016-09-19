@@ -5,26 +5,32 @@ import tweety
 
 
 def test_load_data():
-    b=load_data("one")
-    assert len(tweety.acc)>0
+    b=load_data("one","pwd1")
+    assert len(tweety.id_details)>0
 
 
 
 def test_details():
-    a,b,c,d=details("one")
+    a,b,c,d=details("one","pwd1")
     assert a=="consumer_key"
     assert b=="consumer_secret"
     assert c=="access_token"
     assert d=="access_secret"
 
+    
+
 def test_new_twitter():
-  
-    b=new_twitter("two","conumer_key2","csec2","atoken2","asec2")
-    assert b["two"]["twitter"]==["conumer_key2","csec2","atoken2","asec2"]
+    new_account("two","pwd2")
+    new_twitter("two","conumer_key2","csec2","atoken2","asec2")
+    data=load_data("two","pwd2")
+    assert data["TWITTER"]==["conumer_key2","csec2","atoken2","asec2"]
+
+    
 
 def test_new_account():
-    b=new_account("three")
-    assert b["three"]=={}
+    new_account("three","pwd3")
+    data=load_data("three","pwd3")
+    assert data=={"PASSWORD":"pwd3"}
 
     
     

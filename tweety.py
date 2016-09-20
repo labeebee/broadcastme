@@ -1,22 +1,11 @@
 from tweepy import OAuthHandler
+from common import load_data
 import tweepy
 import json
 
 
-def load_data(id,pwd):
-    with open("db.json") as f:
-        data=json.load(f)
-        global id_details
-        id_details=data[id]
-        id_pwd=id_details["PASSWORD"]
-        if pwd==id_pwd:
-            return (id_details)
-        else:
-            return(False)
-
-
 def details(id,pwd):
-    data=load_data(id,pwd)
+    data=load_data("db.json",id,pwd)
     id_data=data["TWITTER"]
     consumer_key=id_data[0]
     consumer_secret=id_data[1]
@@ -33,31 +22,17 @@ def posting (ckey,csec,atoken,asec):
 
 
     
-def new_twitter(uid,ck,cs,at,asc):
-    with open ("db.json") as f:
-        data=json.load(f)
-        uid_data=data[uid]
-        if "TWITTER" not in uid_data:
-            data[uid]["TWITTER"]=[ck,cs,at,asc]
-            f=open("db.json","w")
-            json.dump(data,f)
-            f.close()
-        else:
-            print("User id Already Exist")
+def new_twitter(uid,pwd,ck,cs,at,asc):
+    uid_data=load_data("db.json",uid,pwd)
+    if "TWITTER" not in uid_data:
+        uid_data["TWITTER"]=[ck,cs,at,asc]
+        f=open("db.json","w")
+        json.dump(data,f)
+        f.close()
+    else:
+        print("User id Already Exist")
 
 
-    
-def new_account(id,pwd):
-      with open ("db.json") as f:
-        data=json.load(f)
-        if id not in data:
-            data[id]={"PASSWORD":pwd}
-            f=open("db.json","w")
-            json.dump(data,f)
-            f.close()
-        else:
-            print("User id Already Exist")
-    
     
     
     

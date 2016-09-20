@@ -5,19 +5,19 @@ import tweety
 
 
 def test_details():
-    a,b,c,d=details("one","pwd1")
-    assert a=="consumer_key"
-    assert b=="consumer_secret"
-    assert c=="access_token"
-    assert d=="access_secret"
+   a,b,c,d=details("one","pwd1")
+   assert a=="conumer_key1"
+   assert b=="csec1"
+   assert c=="atoken1"
+   assert d=="asec1"
 
     
 
 def test_new_twitter():
-    new_account("two","pwd2")
-    new_twitter("two","pwd2","conumer_key2","csec2","atoken2","asec2")
-    data=load_data("db.json","two","pwd2")
-    assert data["TWITTER"]==["conumer_key2","csec2","atoken2","asec2"]
+    new_account("one","pwd1")
+    new_twitter("one","pwd1","conumer_key1","csec1","atoken1","asec1")
+    data=load_data("db.json")
+    assert data["one"]["TWITTER"]==["conumer_key1","csec1","atoken1","asec1"]
 
     
 

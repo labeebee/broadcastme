@@ -10,6 +10,10 @@ def test_details():
    assert b=="csec1"
    assert c=="atoken1"
    assert d=="asec1"
+   details("one","pwd0")
+
+   
+   
 
     
 

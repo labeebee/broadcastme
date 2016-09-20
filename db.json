@@ -1,1 +1,1 @@
-{"two": {"TWITTER": ["conumer_key2", "csec2", "atoken2", "asec2"], "PASSWORD": "pwd2"}, "three": {"PASSWORD": "pwd3"}, "one": {"TWITTER": ["consumer_key", "consumer_secret", "access_token", "access_secret"], "PASSWORD": "pwd1"}}
+{"three": {"PASSWORD": "pwd3"}, "one": {"TWITTER": ["conumer_key1", "csec1", "atoken1", "asec1"], "PASSWORD": "pwd1"}}

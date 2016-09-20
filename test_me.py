@@ -1,4 +1,3 @@
-
 from tweety import load_data,details,new_twitter,new_account
 import tweety
 

@@ -1,12 +1,6 @@
-
-from tweety import load_data,details,new_twitter,new_account
+from tweety import details,new_twitter
+from common import load_data,new_account
 import tweety
-
-
-
-def test_load_data():
-    b=load_data("one","pwd1")
-    assert len(tweety.id_details)>0
 
 
 
@@ -21,16 +15,13 @@ def test_details():
 
 def test_new_twitter():
     new_account("two","pwd2")
-    new_twitter("two","conumer_key2","csec2","atoken2","asec2")
-    data=load_data("two","pwd2")
+    new_twitter("two","pwd2","conumer_key2","csec2","atoken2","asec2")
+    data=load_data("db.json","two","pwd2")
     assert data["TWITTER"]==["conumer_key2","csec2","atoken2","asec2"]
 
     
 
-def test_new_account():
-    new_account("three","pwd3")
-    data=load_data("three","pwd3")
-    assert data=={"PASSWORD":"pwd3"}
+
 
     
     

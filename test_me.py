@@ -1,5 +1,5 @@
-from tweety import load_data,details,new_twitter
-import tweety
+from tweet import load_data,details,new_twitter
+import tweet
 
 
 

@@ -1,10 +1,8 @@
 import facebook
 import requests
+from common import load_data
 
 import fb_data
-
-
- 
 
 class FaceBook:
      
@@ -14,9 +12,10 @@ class FaceBook:
           self.filename = filename
 
 
-     def facebook_post(self, message):
-          data = fb_data.load_file(self.filename)
-          access_token = data[self.username][2]
+     def facebook_post(self,uid,message):
+          data = load_data(self.filename)
+          user_data=data[uid]["FACEBOOK"]
+          access_token = user_data[1]
           graph = facebook.GraphAPI(access_token)
           profile = graph.get_object(data[self.username][1])
           graph.put_wall_post(message)

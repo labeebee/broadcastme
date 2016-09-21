@@ -1,1 +1,1 @@
-{"two": {"TWITTER": ["conumer_key2", "csec2", "atoken2", "asec2"], "PASSWORD": "pwd2"}, "three": {"PASSWORD": "pwd3"}, "one": {"TWITTER": ["consumer_key", "consumer_secret", "access_token", "access_secret"], "PASSWORD": "pwd1"}}
+{"two": {"PASSWORD": "pwd2", "TWITTER": ["conumer_key2", "csec2", "atoken2", "asec2"]}, "fb_user": {"FACEBOOK": ["user_id", "accesstoken"], "PASSWORD": "fb"}, "three": {"PASSWORD": "pwd3"}, "one": {"PASSWORD": "pwd1", "TWITTER": ["consumer_key", "consumer_secret", "access_token", "access_secret"]}}

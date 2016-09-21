@@ -15,7 +15,7 @@ def details(id,pwd):
         return(consumer_key,consumer_secret,access_token,access_secret)
 
 
-def posting (ckey,csec,atoken,asec):
+def posting (ckey,csec,atoken,asec,msg):
     auth= OAuthHandler(ckey,csec)
     auth.set_access_token(atoken,asec)
     tweepy.API(auth).update_status(msg)

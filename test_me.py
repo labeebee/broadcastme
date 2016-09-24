@@ -5,7 +5,7 @@ import tweet
 
 
 def test_details():
-    a,b,c,d=details("one","pwd1")
+    a,b,c,d=details("one")
     assert a=="consumer_key"
     assert b=="consumer_secret"
     assert c=="access_token"

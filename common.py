@@ -6,9 +6,6 @@ def load_data(dbfile="db.json"):
         data=json.load(f)
     return (data)
 
-def load_user_data(dbfile):
-    data=load_data(dbfile)
-    return(data[uid])
 
 
 def signup(id,pwd):

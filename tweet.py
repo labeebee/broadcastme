@@ -4,15 +4,14 @@ import tweepy
 import json
 
 
-def details(id,pwd):
+def details(id):
     data=load_data("db.json")
-    if data[id]["PASSWORD"]==pwd:
-        id_data=data[id]["TWITTER"]
-        consumer_key=id_data[0]
-        consumer_secret=id_data[1]
-        access_token=id_data[2]
-        access_secret=id_data[3]
-        return(consumer_key,consumer_secret,access_token,access_secret)
+    id_data=data[id]["TWITTER"]
+    consumer_key=id_data[0]
+    consumer_secret=id_data[1]
+    access_token=id_data[2]
+    access_secret=id_data[3]
+    return(consumer_key,consumer_secret,access_token,access_secret)
 
 
 def posting (ckey,csec,atoken,asec,msg):
@@ -23,19 +22,17 @@ def posting (ckey,csec,atoken,asec,msg):
 
 
     
-def new_twitter(uid,pwd,ck,cs,at,asc):
+def new_twitter(uid,ck,cs,at,asc):
     data=load_data("db.json")
-    passw=data[uid]["PASSWORD"]
-    if pwd==passw:
-        if "TWITTER" not in data[uid]:
-            data[uid]["TWITTER"]=[ck,cs,at,asc]
-            f=open("db.json","w")
-            json.dump(data,f)
-            f.close()
-        else:
-            print("User id Already have Twitter")
+    if "TWITTER" not in data[uid]:
+        data[uid]["TWITTER"]=[ck,cs,at,asc]
+        f=open("db.json","w")
+        json.dump(data,f)
+        f.close()
+        return True
     else:
-        print ("WRONG PASSWORD")
+        return False
+
 
     
     

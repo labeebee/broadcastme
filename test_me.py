@@ -14,7 +14,7 @@ def test_details():
     
 
 def test_new_twitter():
-    new_twitter("two","pwd2","conumer_key2","csec2","atoken2","asec2")
+    new_twitter("two","conumer_key2","csec2","atoken2","asec2")
     data=load_data("db.json")
     assert data["two"]["TWITTER"]==["conumer_key2","csec2","atoken2","asec2"]
 

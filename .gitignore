@@ -13,3 +13,9 @@ facebook/
 facebook_sdk.egg-info/
 setup.py
 test/
+#channels.py#
+common.py~
+test_del.py
+tet_common.py~
+tweety.pyc
+#fb_data.py#

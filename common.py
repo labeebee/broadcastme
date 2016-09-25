@@ -8,12 +8,7 @@ def load_data(dbfile="db.json"):
     return (data)
 
 
-def load_user_data(dbfile,uid,pwd):
-    data=load_data(dbfile)
-    if data[uid]["PASSWORD"]==pwd:
-        return(data[uid])
-    else:
-        print("Wrong Userid or Password")
+
     
 def signup(id,pwd):
 

@@ -25,8 +25,11 @@ def signup(id,pwd):
 
 def signin(uid,pwd):
     data=load_data("db.json")
-    if data[uid]["PASSWORD"]==pwd:
-        return True
+    if uid in data:
+        if data[uid]["PASSWORD"]==pwd:
+            return True
+        else:
+            return False
     else:
         return False
     

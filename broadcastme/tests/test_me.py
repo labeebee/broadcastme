@@ -1,9 +1,8 @@
 from .. import tweety
 from .. import common
 
-from .common import data_file
 
-def test_details():
+def test_details(data_file):
     a=common.signup("one","pwd1", data_file)
     tweety.new_twitter("one","conumer_key","consumer_secret","access_token","access_secret", data_file)
     a,b,c,d=tweety.details("one", data_file)
@@ -12,10 +11,7 @@ def test_details():
     assert c=="access_token"
     assert d=="access_secret"
 
-
-    
-
-def test_new_twitter():
+def test_new_twitter(data_file):
     a=common.signup("one","pwd1", data_file)
     if a==True:
         tweety.new_twitter("one","conumer_key","consumer_secret","access_token","access_secret", data_file)

@@ -1,7 +1,7 @@
 import json
 import facebook
 import requests
-from common import load_data
+from .common import load_data
       
 def facebook_post(uid,message):
      data = load_data("db.json")

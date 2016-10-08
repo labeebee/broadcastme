@@ -1,11 +1,11 @@
 from tweepy import OAuthHandler
-from common import load_data
+from .common import load_data
 import tweepy
 import json
 
 
-def details(id):
-    data=load_data("db.json")
+def details(id, data_file):
+    data=load_data(data_file)
     id_data=data[id]["TWITTER"]
     consumer_key=id_data[0]
     consumer_secret=id_data[1]
@@ -22,8 +22,8 @@ def posting (ckey,csec,atoken,asec,msg):
 
 
     
-def new_twitter(uid,ck,cs,at,asc):
-    data=load_data("db.json")
+def new_twitter(uid,ck,cs,at,asc, data_file):
+    data=load_data(data_file)
     if "TWITTER" not in data[uid]:
         data[uid]["TWITTER"]=[ck,cs,at,asc]
         f=open("db.json","w")

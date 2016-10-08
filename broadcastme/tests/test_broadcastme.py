@@ -1,6 +1,5 @@
-import channels
-from unittest import mock
-from common import signup,load_data
+from .. import channels
+from .. common import signup,load_data
 # from fb_data import new_fb
 def Xtest_facebook_post():
 
